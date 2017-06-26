@@ -1,4 +1,4 @@
-package com.jeenl.controller;
+﻿package com.jeenl.controller;
 import javax.xml.namespace.QName;  
 import org.apache.axis2.AxisFault;  
 import org.apache.axis2.addressing.EndpointReference;  
@@ -18,6 +18,7 @@ public class UserServiceTest {
         QName opAddEntry = new QName("http://impl.service.jeenl.com","login");  
         // 指定sayHelloToPerson方法的参数值  
         Object[] opAddEntryArgs = new Object[] { "username","password" };  
+	哈哈哈
         // 指定sayHelloToPerson方法返回值的数据类型的Class对象  
         Class[] classes = new Class[] { String.class };  
         // 调用sayHelloToPerson方法并输出该方法的返回值  
