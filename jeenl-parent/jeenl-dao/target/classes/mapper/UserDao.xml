@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace命名空间,作用就是对sql进行分类化管理,理解sql隔离
+注意:使用mapper代理方法开发,namespace有特殊重要的作用,namespace等于mapper接口地址-->
+<mapper namespace="com.jeenl.dao.UserDao">
+
+    <!--mapper作用:为DAO接口方法提供sql语句配置-->
+
+    <!--   Seckill queryById(long seckillId);-->
+    <select id="login" resultType="User">
+        SELECT id,user_name
+        FROM user
+        WHERE user_name = #{name} and password = #{password}
+    </select>
+    
+    <select id="loadUser" resultType="User" parameterType="int">
+        SELECT id,user_name,password,password_encode,birthday,openid
+        FROM user
+        WHERE id = #{id}
+    </select>
+    
+    <select id="loadUserByOpenid" resultType="User" parameterType="String">
+        SELECT id,user_name,password,password_encode,birthday,openid
+        FROM user
+        WHERE openid = #{openid}
+    </select>
+    
+    <update id="doDeleteUser" parameterType="int">
+       DELETE FROM user WHERE id = #{id}
+    </update>
+    
+    <update id="doCreateUser" parameterType="User">
+       INSERT ignore INTO user(user_name,password,password_encode,birthday,openid)VALUES (#{userName},#{password},#{passwordEncode},#{birthday},#{openid})
+    </update>
+    
+    <update id="doUpdateUser" parameterType="User">
+    	UPDATE user 
+    	SET user_name = #{userName},
+    	<if test="password != null">
+			password = #{password},
+		</if>
+    	<if test="passwordEncode != null">
+			password_encode = #{passwordEncode},
+		</if>
+    	<if test="birthday != null">
+			birthday = #{birthday}
+		</if>
+		 WHERE id = #{id}
+    </update>
+
+</mapper>
