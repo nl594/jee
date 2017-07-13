@@ -55,4 +55,14 @@ QName opAddEntry = new QName("http://impl.service.jeenl.com","login");
         
         serviceClient.invokeRobust(opAddEntry, opAddEntryArgs);;
     }  
+public static void test5() throws Exception{  
+QName opAddEntry = new QName("http://impl.service.jeenl.com","login");  
+        // 指定sayHelloToPerson方法的参数值  
+        Object[] opAddEntryArgs = new Object[] { "username","password" };  ("http://localhost:8080/jeenl-web/services/userService");  
+        options.setTo(targetEPR);  
+          
+        // 指定要调用的sayHelloToPerson方法及WSDL文件的命名空间  
+        
+        serviceClient.invokeRobust(opAddEntry, opAddEntryArgs);;
+    }  
 }  
