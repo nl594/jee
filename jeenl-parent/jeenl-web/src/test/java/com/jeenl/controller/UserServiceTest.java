@@ -18,11 +18,19 @@ public class UserServiceTest {
         QName opAddEntry = new QName("http://impl.service.jeenl.com","login");  
         // 指定sayHelloToPerson方法的参数值  
         Object[] opAddEntryArgs = new Object[] { "username","password" };  
-	哈哈哈
         // 指定sayHelloToPerson方法返回值的数据类型的Class对象  
-        Class[] classes = new Class[] { String.class };  
+        Class[] classest = new Class[] { String.class };  
         // 调用sayHelloToPerson方法并输出该方法的返回值  
 //        serviceClient.invokeBlocking(opAddEntry,opAddEntryArgs, classes);
         serviceClient.invokeRobust(opAddEntry, opAddEntryArgs);;
     }  
+    
+    public static void test(){
+//		ctx = new AnnotationConfigApplicationContext(UserDaoImpl.class);
+//		UserDao userDao=ctx.getBean("userDaoImpl",UserDaoImpl.class);
+//		userDao.login("nl", "niu");
+//		ctx = new AnnotationConfigApplicationContext(UserServiceImpl.class);
+//		UserService userService=ctx.getBean("userServiceImpl",UserServiceImpl.class);
+//		userService.login("nl", "niu");
+    }
 }  
